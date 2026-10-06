@@ -1,2 +1,13 @@
-# Misi-Jurutera-Elektrik
-Aplikasi pembelajaran gamifikasi interaktif ABEDU LABS untuk Sains Tahun 5. Murid meneroka litar elektrik melalui misi, cabaran, kuiz, XP, lencana dan aktiviti interaktif bagi menjadikan pembelajaran Sains lebih menarik, aktif dan menyeronokkan.
+# ABEDU LABS — Sains Tahun 5
+
+PWA gamifikasi untuk Sains Tahun 5 KSSR Semakan 2017.
+
+## Fail utama
+- index.html
+- manifest.json
+- sw.js
+- icon-192.png
+- icon-512.png
+
+## GitHub Pages
+Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save.
