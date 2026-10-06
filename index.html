@@ -1,141 +1,36 @@
-<!doctype html>
-<html lang="ms">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b7f7d">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Jurutera Elektrik">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
-<title>Misi Jurutera Elektrik</title>
+<!doctype html><html lang="ms"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#087f7b"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-192.png">
+<title>ABEDU LABS — Misi Jurutera Elektrik</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f3f8f3;color:#16484b;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-header{background:#e7f2e8;padding:20px 18px;border-bottom:1px solid #d6e5d8}
-.brand{font-weight:900;letter-spacing:2px}.sub{font-size:12px;letter-spacing:2px;color:#6b8180;margin-top:4px}
-main{max-width:760px;margin:auto;padding:22px 16px 50px}.eyebrow{font-size:12px;font-weight:900;letter-spacing:3px;color:#0b7f7d}
-h1{font-size:38px;line-height:1.05;margin:10px 0}.lead{color:#657b7c;font-size:16px}
-.stats{display:flex;justify-content:space-between;background:#fff;border:1px solid #dce8de;border-radius:20px;padding:17px;margin:20px 0}
-.tabs{display:flex;gap:7px;background:#e7f1e8;padding:7px;border-radius:18px;overflow:auto}.tab{border:0;background:transparent;padding:12px 15px;border-radius:14px;font-weight:800;color:#23696b;white-space:nowrap}.tab.active{background:#fff}
-.card{background:#fff;border:1px solid #dce8de;border-radius:24px;padding:20px;margin-top:18px;box-shadow:0 5px 18px #16484b12}
-.tag{display:inline-block;background:#edf7ef;padding:8px 12px;border-radius:14px;font-size:11px;font-weight:900;letter-spacing:1px}.objcount{float:right;color:#64797a}
-.progress{display:flex;gap:6px;margin:15px 0}.bar{height:7px;flex:1;background:#e1ebe2;border-radius:9px}.bar.done{background:#0b7f7d}
-h2{font-size:25px;margin-bottom:6px}.circuit{background:#f4f8f4;border-radius:18px;padding:18px;text-align:center;font-size:22px;margin:15px 0}
-.answers{display:grid;grid-template-columns:1fr 1fr;gap:11px}.answer{border:2px solid #dce9de;background:#fff;border-radius:17px;padding:18px 8px;font-size:17px;font-weight:850;color:#176d70}
-.answer.correct{border-color:#1c8d70;background:#edf9f2}.answer.wrong{border-color:#c77767;background:#fff2ef}
-.feedback{display:none;margin-top:15px;padding:15px;border-radius:16px;background:#eef7ef;line-height:1.45}.next{display:none;width:100%;margin-top:12px;border:0;background:#0b7f7d;color:#fff;border-radius:15px;padding:14px;font-weight:900}
-.install{display:none;float:right;border:0;background:#fff;border-radius:22px;padding:10px 14px;font-weight:900;color:#16484b}
-.badges{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.badge{padding:9px 12px;border-radius:13px;background:#edf3ee;font-size:13px}.locked{opacity:.45}
-.finish{display:none;text-align:center}.big{font-size:55px}
-.small{font-size:13px;color:#6b7d7d}
-</style>
-</head>
-<body>
-<header>
-<button class="install" id="installBtn">↓ Pasang</button>
-<div class="brand">⚡ MAKMAL MINI</div><div class="sub">SAINS TAHUN 5 · LITAR ELEKTRIK</div>
-</header>
-<main>
-<div class="eyebrow">• JOM JADI JURUTERA CILIK</div>
-<h1>Misi Jurutera Elektrik</h1>
-<div class="lead">Bina, uji dan kuasai litar elektrik.</div>
-<div class="stats"><div>⭐ <b id="score">0</b> XP</div><div>🏆 <b id="done">0</b>/5 Misi</div></div>
-
-<div class="tabs">
-<button class="tab active" data-m="1">01 Bina</button>
-<button class="tab" data-m="2">02 Bersiri</button>
-<button class="tab" data-m="3">03 Selari</button>
-<button class="tab" data-m="4">04 Kecerahan</button>
-<button class="tab" data-m="5">05 Final</button>
-</div>
-
-<section class="card" id="game">
-<span class="tag" id="tag">MISI 01 · BINA LITAR</span><span class="objcount">Soalan <b id="qnum">1</b>/3</span>
-<div class="progress" id="progress"></div>
-<h2 id="question">Apakah komponen yang menjadi sumber tenaga dalam litar?</h2>
-<div class="circuit" id="visual">🔋 &nbsp; ⚡ &nbsp; 💡</div>
-<div class="answers" id="answers"></div>
-<div class="feedback" id="feedback"></div>
-<button class="next" id="next">Soalan seterusnya →</button>
-</section>
-
-<section class="card">
-<b>🎖️ Koleksi Lencana</b>
-<div class="badges"><span class="badge locked" id="b1">🔋 Pemula Litar</span><span class="badge locked" id="b2">💡 Pakar Bersiri</span><span class="badge locked" id="b3">⚡ Pakar Selari</span><span class="badge locked" id="b4">🏆 Jurutera Elektrik</span></div>
-</section>
-
-<section class="card finish" id="finish"><div class="big">🏆</div><h2>TAHNIAH, JURUTERA!</h2><p>Anda telah menamatkan semua misi.</p><h2 id="finalScore"></h2></section>
+:root{--p:#087f7b;--bg:#f3f8f3;--card:#fff;--text:#173f42;--muted:#687b7c;--border:#dce8df;--soft:#eaf5ec;--gold:#f4c34f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{padding:18px;background:linear-gradient(135deg,#e4f3e8,#f8fbf6);border-bottom:1px solid var(--border)}.wrap,main{max-width:780px;margin:auto}.brand{font-weight:900;letter-spacing:2px}.sub{font-size:11px;letter-spacing:2px;color:var(--muted);margin-top:4px}
+.install{float:right;border:1px solid var(--border);background:#fff;border-radius:99px;padding:9px 13px;font-weight:800;display:none}
+main{padding:22px 16px 45px}.ey{font-size:11px;letter-spacing:3px;color:var(--p);font-weight:900}h1{font-size:36px;line-height:1.05;margin:10px 0}.lead,.small{color:var(--muted)}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}.stat,.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:17px}.stat b{font-size:23px}.card{margin-top:15px}.sim{background:#edf6ee;border:1px solid var(--border);border-radius:18px;padding:16px;margin-top:14px}
+.circuit{min-height:135px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:34px}.wire{height:5px;width:45px;background:#5e7070;border-radius:5px}.bulb{font-size:65px;filter:grayscale(1);transition:.2s}.bulb.on{filter:drop-shadow(0 0 16px var(--gold))}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}.control{background:#fff;border:1px solid var(--border);border-radius:15px;padding:13px}.control label{display:block;font-size:11px;font-weight:900;color:var(--muted);margin-bottom:8px}.step{display:flex;align-items:center;justify-content:space-between}.step button{width:46px;height:44px;border:0;border-radius:12px;background:var(--p);color:#fff;font-size:24px;font-weight:900}.value{font-size:24px;font-weight:900}.switch{width:100%;height:44px;border:0;border-radius:12px;background:#dce8df;font-weight:900}.switch.on{background:var(--p);color:#fff}
+input[type=range]{width:100%;accent-color:var(--p)}.meter{margin-top:14px}.mt{display:flex;justify-content:space-between;font-size:13px;font-weight:800}.bar{height:13px;background:#dce8df;border-radius:99px;overflow:hidden;margin-top:7px}.fill{height:100%;background:var(--gold);width:20%;transition:.2s}
+.action{width:100%;margin-top:12px;padding:14px;border:0;border-radius:13px;background:var(--p);color:#fff;font-weight:900}.feedback{display:none;margin-top:12px;padding:13px;background:var(--soft);border-radius:13px}.badges{display:flex;gap:8px;flex-wrap:wrap}.badge{padding:8px 10px;border-radius:11px;background:#eef3ef;font-size:13px}.locked{opacity:.4}
+@media(max-width:560px){.controls{grid-template-columns:1fr}}
+</style></head><body>
+<header><div class="wrap"><button id="install" class="install">↓ Pasang</button><div class="brand">⚡ ABEDU LABS</div><div class="sub">SAINS TAHUN 5 · LITAR ELEKTRIK</div></div></header>
+<main><div class="ey">• JOM JADI JURUTERA CILIK</div><h1>Misi Jurutera Elektrik</h1><div class="lead">Uji bateri, suis dan kecerahan mentol secara interaktif.</div>
+<div class="stats"><div class="stat">⭐ XP<br><b id="xp">0</b></div><div class="stat">🏆 Misi<br><b id="mis">0/3</b></div></div>
+<div class="card"><div class="small">SIMULATOR INTERAKTIF</div><h2>Kecerahan Mentol</h2><p class="small">Tekan + / − atau gerakkan slider.</p>
+<div class="sim"><div class="circuit">🔋 <span id="bc">× 1</span><span class="wire"></span><span id="bulb" class="bulb">💡</span></div>
+<div class="controls"><div class="control"><label>BILANGAN SEL</label><div class="step"><button id="minus">−</button><span id="cells" class="value">1</span><button id="plus">+</button></div></div>
+<div class="control"><label>SUIS</label><button id="sw" class="switch on">🟢 ON</button></div></div>
+<div class="control" style="margin-top:10px"><label>SLIDER BILANGAN SEL</label><input id="slider" type="range" min="1" max="5" value="1"></div>
+<div class="meter"><div class="mt"><span>Kecerahan</span><strong id="pct">20%</strong></div><div class="bar"><div id="fill" class="fill"></div></div></div></div></div>
+<div class="card"><div class="small">MISI 01 · UJI DAN PERHATI</div><h2>Apa berlaku apabila sel bertambah?</h2><p class="small">Cuba 1 hingga 5 sel. Kemudian semak pemerhatian.</p><button id="ans" class="action">Semak pemerhatian</button><div id="fb" class="feedback"></div></div>
+<div class="card"><div class="small">MISI 02 · CABARAN</div><h2>🎯 Tetapkan 4 sel dan suis ON.</h2><div id="challenge" class="small">Belum selesai.</div></div>
+<div class="card"><div class="small">LENCANA</div><div class="badges"><span id="b1" class="badge locked">🔋 Penjelajah Litar</span><span id="b2" class="badge locked">💡 Pakar Kecerahan</span><span id="b3" class="badge locked">🏆 Jurutera Elektrik</span></div></div>
 </main>
-
 <script>
-const missions=[
-{title:"MISI 01 · BINA LITAR",qs:[
-["Apakah komponen yang menjadi sumber tenaga dalam litar?","🔋 🔌 💡",["Sel kering","Mentol","Suis"],0],
-["Apakah fungsi suis?","🔌 → 💡",["Menghasilkan tenaga","Membuka dan menutup litar","Menghasilkan cahaya"],1],
-["Apakah yang diperlukan supaya mentol menyala?","🔋 ── 💡",["Litar lengkap","Litar terbuka","Tiada sel"],0]]},
-{title:"MISI 02 · LITAR BERSIRI",qs:[
-["Dalam litar bersiri, komponen disusun bagaimana?","🔋 ─ 💡 ─ 💡",["Satu laluan","Banyak laluan","Tanpa laluan"],0],
-["Jika satu mentol dalam litar bersiri rosak, apa berlaku?","💡 ✖️ 💡",["Yang lain terus menyala","Semua mentol terpadam","Mentol jadi lebih terang"],1],
-["Apakah ciri utama litar bersiri?","🔋 → 💡 → 💡",["Satu laluan arus","Dua atau lebih laluan","Tiada arus"],0]]},
-{title:"MISI 03 · LITAR SELARI",qs:[
-["Litar selari mempunyai...","🔋 ↙💡↘💡",["Satu laluan","Lebih daripada satu laluan","Tiada laluan"],1],
-["Jika satu mentol rosak dalam litar selari...","💡 ✖️ | 💡",["Semua terpadam","Mentol lain boleh terus menyala","Sel kering rosak"],1],
-["Apakah kelebihan litar selari di rumah?","🏠 💡 💡",["Peralatan boleh berfungsi secara berasingan","Semua mesti padam bersama","Tiada suis"],0]]},
-{title:"MISI 04 · KECERAHAN",qs:[
-["Bagaimanakah kecerahan mentol boleh ditambah dalam litar yang sesuai?","🔋 🔋 → 💡",["Tambah sel kering","Buang semua sel","Buka suis"],0],
-["Jika dua mentol ditambah dalam litar bersiri, kecerahan setiap mentol biasanya...","💡 + 💡",["Bertambah","Berkurang","Tidak berubah"],1],
-["Apakah pemboleh ubah yang boleh kita uji dalam eksperimen litar?","🧪 ⚡",["Bilangan sel kering","Nama murid","Warna meja"],0]]},
-{title:"MISI 05 · FINAL CHALLENGE",qs:[
-["Rumah biasanya menggunakan sambungan yang manakah supaya peralatan boleh berfungsi secara berasingan?","🏠 ⚡",["Bersiri","Selari","Terbuka"],1],
-["Jika suis dibuka, litar menjadi...","🔌 ⛔",["Lengkap","Terbuka","Lebih terang"],1],
-["Anda berjaya menguasai konsep utama litar. Apakah gelaran anda?","🏆 ⚡",["Jurutera Elektrik","Ahli Sihir","Kapten Angkasa"],0]]}
-];
-
-let m=0,q=0,score=0,completed=new Set();
-const $=id=>document.getElementById(id);
-function render(){
- const data=missions[m], item=data.qs[q];
- $("tag").textContent=data.title;$("qnum").textContent=q+1;
- $("question").textContent=item[0];$("visual").textContent=item[1];
- $("feedback").style.display="none";$("next").style.display="none";
- $("answers").innerHTML="";
- item[2].forEach((a,i)=>{let b=document.createElement("button");b.className="answer";b.textContent=a;b.onclick=()=>answer(i,b);$("answers").appendChild(b)});
- $("progress").innerHTML="";
- data.qs.forEach((_,i)=>{let x=document.createElement("div");x.className="bar"+(i<=q?" done":"");$("progress").appendChild(x)});
- document.querySelectorAll(".tab").forEach((x,i)=>x.classList.toggle("active",i===m));
-}
-function answer(i,btn){
- const item=missions[m].qs[q], all=[...document.querySelectorAll(".answer")];
- all.forEach(x=>x.disabled=true);
- if(i===item[3]){
-   btn.classList.add("correct");score+=10;
-   $("feedback").innerHTML="✅ <b>Betul!</b> +10 XP<br>"+explain(m,q);
-   $("feedback").style.display="block";$("next").style.display="block";
- }else{
-   btn.classList.add("wrong");$("feedback").innerHTML="❌ Belum tepat. Cuba semula soalan ini.";
-   $("feedback").style.display="block";all.forEach(x=>x.disabled=false);
- }
- $("score").textContent=score;
-}
-function explain(mi,qi){
- const e=[
- "Sel kering membekalkan tenaga elektrik kepada litar.","Suis mengawal sama ada litar lengkap atau terbuka.","Mentol memerlukan litar lengkap untuk menyala.",
- "Litar bersiri mempunyai satu laluan arus.","Jika satu mentol rosak, laluan terputus dan mentol lain padam.","Ciri utama ialah satu laluan arus.",
- "Litar selari mempunyai lebih daripada satu laluan.","Laluan lain masih membolehkan arus mengalir.","Peralatan boleh berfungsi secara berasingan.",
- "Menambah sel kering boleh meningkatkan beza keupayaan dalam litar yang sesuai.","Dalam litar bersiri, tenaga elektrik dibahagi antara mentol.","Bilangan sel kering ialah pemboleh ubah yang boleh dimanipulasikan.",
- "Litar selari membolehkan peralatan berfungsi secara berasingan.","Suis terbuka memutuskan laluan arus.","Anda kini seorang Jurutera Elektrik!"
- ]; return e[mi*3+qi];
-}
-$("next").onclick=()=>{
- if(q<2){q++;render()}else{completed.add(m);$("done").textContent=completed.size;unlock();if(m<4){m++;q=0;render()}else{$("finish").style.display="block";$("finalScore").textContent=score+" XP"}}};
-function unlock(){if(completed.size>=1)$("b1").classList.remove("locked");if(completed.size>=2)$("b2").classList.remove("locked");if(completed.size>=3)$("b3").classList.remove("locked");if(completed.size>=5)$("b4").classList.remove("locked")}
-document.querySelectorAll(".tab").forEach((b,i)=>b.onclick=()=>{if(i<=Math.max(...completed,-1)+1){m=i;q=0;render()}});
-render();
-
-let deferredPrompt;
-window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;$("installBtn").style.display="block"});
-$("installBtn").onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null}};
-if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");
-</script>
-</body>
-</html>
+const s={c:1,on:true,xp:0,m1:false,m2:false},$=id=>document.getElementById(id);
+function update(){s.c=Math.max(1,Math.min(5,Number(s.c)||1));$("cells").textContent=s.c;$("bc").textContent="× "+s.c;$("slider").value=s.c;let p=s.on?s.c*20:0;$("pct").textContent=p+"%";$("fill").style.width=p+"%";$("bulb").classList.toggle("on",s.on&&p>0);$("bulb").style.opacity=s.on?.35+s.c*.13:.25;$("sw").classList.toggle("on",s.on);$("sw").textContent=s.on?"🟢 ON":"⚪ OFF";if(s.c===4&&s.on&&!s.m2){s.m2=true;s.xp+=50;$("challenge").textContent="✅ Cabaran selesai! +50 XP";$("b2").classList.remove("locked");$("b3").classList.remove("locked")}$("xp").textContent=s.xp;$("mis").textContent=((s.m1?1:0)+(s.m2?1:0))+"/3"}
+$("minus").onclick=()=>{s.c--;update()};$("plus").onclick=()=>{s.c++;update()};$("slider").oninput=e=>{s.c=+e.target.value;update()};$("sw").onclick=()=>{s.on=!s.on;update()};$("ans").onclick=()=>{s.m1=true;s.xp=Math.max(s.xp,20);$("fb").style.display="block";$("fb").innerHTML="✅ Apabila bilangan sel bertambah, kecerahan mentol meningkat dalam model simulasi ini. Suis OFF menyebabkan mentol padam.";$("b1").classList.remove("locked");update()};
+let dp;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e;$("install").style.display="block"});$("install").onclick=async()=>{if(dp){dp.prompt();dp=null}};if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");update();
+</script></body></html>
