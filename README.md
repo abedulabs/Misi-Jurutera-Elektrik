@@ -14,3 +14,6 @@
 4. URL akan berbentuk `https://USERNAME.github.io/REPOSITORY/pra-uasa/`.
 
 Penilaian struktur automatik berasaskan kata kunci ialah anggaran latihan kendiri; guru boleh menyemak jawapan bertulis secara manual.
+
+
+Versi ini menyertakan rajah skematik hitam putih berkontras tinggi pada setiap kad soalan untuk membantu murid membaca dan mentafsir konsep sains.
