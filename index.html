@@ -1,218 +1,54 @@
-<!doctype html>
-<html lang="ms">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#087f7b">
-<link rel="manifest" href="manifest.json">
-<title>ABEDU LABS — Sains Tahun 5</title>
-<style>
-:root{--p:#087f7b;--p2:#0ca6a0;--bg:#f3f8f3;--card:#fff;--text:#173f42;--muted:#687b7c;--border:#dce8df;--gold:#f4c34f;--danger:#d95757;--ok:#23966d}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}
-header{background:linear-gradient(135deg,#087f7b,#14a7a0);color:#fff;padding:24px 18px 28px;border-radius:0 0 28px 28px}
-.wrap{max-width:980px;margin:auto;padding:0 16px}.brand{font-weight:900;letter-spacing:.8px}.hero{display:flex;justify-content:space-between;gap:15px;align-items:end}.hero h1{margin:6px 0;font-size:30px}.hero p{margin:0;opacity:.9}.xpbox{background:#ffffff22;border:1px solid #ffffff44;padding:12px 14px;border-radius:16px;min-width:120px}.xpbox b{font-size:22px}
-.progress{height:9px;background:#ffffff44;border-radius:9px;overflow:hidden;margin-top:8px}.progress span{display:block;height:100%;background:#fff;width:0}
-main{padding:20px 0 50px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px;box-shadow:0 7px 22px #17433d0d}.mission-card{cursor:pointer;transition:.2s}.mission-card:hover{transform:translateY(-2px)}.num{display:inline-flex;width:38px;height:38px;border-radius:12px;background:#e8f5ef;align-items:center;justify-content:center;font-weight:900;color:var(--p)}h2,h3{margin:8px 0}.muted{color:var(--muted)}button,.btn{border:0;border-radius:13px;padding:12px 16px;font-weight:800;cursor:pointer;background:var(--p);color:#fff}.btn.secondary{background:#e8f5ef;color:var(--p)}button:disabled{opacity:.45;cursor:not-allowed}.tag{display:inline-block;background:#fff5cf;color:#805f00;padding:5px 9px;border-radius:99px;font-size:12px;font-weight:800;margin:3px 3px 0 0}
-.hidden{display:none!important}.topbar{display:flex;gap:10px;align-items:center;margin-bottom:14px}.back{background:#fff;color:var(--p);border:1px solid var(--border)}.sim{background:#0e3336;color:#fff;border-radius:22px;padding:20px}.sim h3{color:#fff}.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:14px}.control{background:#ffffff12;border:1px solid #ffffff20;border-radius:15px;padding:12px}.control label{display:block;font-size:12px;color:#b9d5d5}.control input,.control select{width:100%;margin-top:7px}.readout{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.read{background:#fff;color:var(--text);border-radius:13px;padding:10px 13px;min-width:100px}.read small{display:block;color:var(--muted)}.bulb{font-size:74px;text-align:center;transition:.3s;filter:grayscale(1);opacity:.35}.bulb.on{filter:none;opacity:1;filter:drop-shadow(0 0 22px #ffe45c)}.experiment-visual{min-height:170px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}.battery{font-size:45px}.wire{font-size:38px}.question{margin-top:14px}.qhead{font-weight:900;margin-bottom:8px}.opts{display:grid;gap:8px}.opt{background:#f7faf8;color:var(--text);border:1px solid var(--border);text-align:left}.opt.correct{background:#dff5e9;border-color:#75c69f}.opt.wrong{background:#ffe5e5;border-color:#e69b9b}.feedback{margin-top:10px;padding:11px;border-radius:12px;background:#eef8f3}.xp{font-weight:900;color:#8b6500}.mission-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.section{margin-top:16px}.steps{display:flex;gap:6px;overflow:auto;padding-bottom:4px}.step{white-space:nowrap;padding:7px 10px;border-radius:99px;background:#e7efec;font-size:12px;font-weight:800}.step.active{background:var(--p);color:#fff}.success{border:1px solid #9bd4b9;background:#edfbf3}.footer{text-align:center;color:var(--muted);padding:20px}
-@media(max-width:600px){.hero{align-items:start;flex-direction:column}.hero h1{font-size:25px}.xpbox{width:100%}}
-</style>
-</head>
-<body>
-<header><div class="wrap">
-<div class="brand">ABEDU LABS • SAINS TAHUN 5</div>
-<div class="hero"><div><h1>Misi Saintis Muda 🔬</h1><p>Teroka → Uji → Fikir → Buktikan</p></div>
-<div class="xpbox">XP <b id="totalXP">0</b><div class="progress"><span id="progress"></span></div></div></div>
-</div></header>
-<main class="wrap">
-<section id="home">
-<div class="card" style="margin-bottom:15px"><h2>12 Misi Penyelidikan</h2><p class="muted">Setiap misi mempunyai satu eksperimen/simulasi interaktif dan enam langkah Kemahiran Proses Sains: pemerhatian, inferens, pemboleh ubah, hipotesis, ramalan dan kesimpulan.</p></div>
-<div id="missionGrid" class="grid"></div>
-</section>
-<section id="mission" class="hidden"></section>
-</main>
-<div class="footer">ABEDU LABS • Sains Tahun 5 • KSSR Semakan 2017</div>
+<!doctype html><html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pra-UASA Sains Tahun 5</title><style>
+:root{--blue:#2678b8;--navy:#153b5b;--bg:#eef7fb;--line:#d8e6ed}*{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui;background:radial-gradient(circle at 8% 8%,#d9f5f4,transparent 25%),radial-gradient(circle at 95% 25%,#fff0c8,transparent 22%),var(--bg);color:#18334a}header{background:linear-gradient(125deg,#153b5b,#2678b8,#35a8b7);color:white;padding:24px 16px}header p{margin:0}.wrap{max-width:1000px;margin:auto}h1{font-size:clamp(24px,4vw,36px);margin:8px 0}nav{position:sticky;top:0;background:#ffffffee;display:flex;gap:6px;overflow:auto;padding:8px;z-index:3;justify-content:center}nav a{white-space:nowrap;text-decoration:none;color:#153b5b;padding:7px 10px;font-weight:700}.panel{background:white;border:1px solid var(--line);border-radius:15px;padding:15px;margin:12px;box-shadow:0 5px 16px #153b5b0a}.panel h2{font-size:19px;color:var(--navy);margin:0 0 10px}.pill{background:#e4f6fb;padding:3px 8px;border-radius:20px;font-size:11px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}.topic,.question{background:#f7fbfd;border:1px solid var(--line);border-radius:11px;padding:10px;margin:8px 0}.topic b{display:block;color:var(--navy)}.question .qtitle{font-weight:750;margin-bottom:7px}.opts{display:grid;gap:5px}.opts label{display:flex;gap:7px;background:#fff;padding:7px;border:1px solid #e6eef2;border-radius:8px}input[type=radio]{margin-top:4px}textarea,input[type=text],select{font:inherit;padding:9px;width:100%;border:1px solid #cbdde6;border-radius:8px;background:white}textarea{min-height:65px}.btn{border:0;border-radius:9px;background:var(--blue);color:white;padding:10px 13px;font-weight:800;cursor:pointer}.secondary{background:#e8f1f7;color:var(--navy)}.muted,.small{color:#617789;font-size:12px}.scorebox{background:#f4fbff;border:1px solid var(--line);border-radius:12px;padding:12px}.score{font-size:28px;font-weight:900;color:var(--blue)}.bar{height:8px;background:#dceaf0;border-radius:8px;overflow:hidden}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#55c4d8,#23845b)}.feedback{font-size:12px;font-weight:700}.good{color:#23845b}.bad{color:#b94343}.note{padding:10px;background:#fff8df;border:1px solid #f2df9d;border-radius:10px;font-size:12px}.row{display:grid;grid-template-columns:1.2fr 1fr;gap:10px}.modal{position:fixed;inset:0;background:#09243acc;display:none;align-items:center;justify-content:center;padding:15px;z-index:9}.modal.show{display:flex}.modalbox{background:white;padding:24px;border-radius:18px;text-align:center;width:min(460px,100%)}.modalbox h2{color:var(--navy)}.markah{font-size:34px;color:var(--blue);font-weight:900}footer{text-align:center;padding:20px;color:#617789;font-size:11px}@media(max-width:620px){.row{grid-template-columns:1fr}.panel{padding:12px}}
+</style></head><body><header><div class="wrap"><span>🔬 MAKMAL MINI • SAINS TAHUN 5</span><h1>Simulator Penyelidikan Pra-UASA</h1><p>Latihan kendiri merangkumi topik utama Sains Tahun 5. Jumlah keseluruhan 50 markah.</p></div></header><nav><a href="#mula">Ringkasan</a><a href="#A">Bahagian A</a><a href="#B">Bahagian B</a><a href="#C">Bahagian C</a><a href="#nota">Nota</a></nav><main class="wrap">
+<section id="mula" class="panel"><div class="row"><div><h2>🧪 Misi penyelidikan</h2><p>Jawab semua bahagian dan tekan semak untuk mengira markah. Jawapan struktur dinilai secara anggaran berdasarkan kata kunci.</p><div class="note">A: 21 markah • B: 9 markah • C: 20 markah. Jumlah 50 markah.</div></div><div class="scorebox"><div class="small">Pencapaian semasa</div><div class="score"><span id="score">0</span><span class="small"> / 50</span></div><div class="bar"><span id="progress"></span></div><p class="small" id="breakdown">Belum disemak</p><button class="btn" id="view">Lihat pencapaian keseluruhan</button></div></div><h3>Topik diliputi</h3><div class="grid">
+<div class="topic"><b>Kemahiran saintifik</b>Hipotesis, pemboleh ubah</div><div class="topic"><b>Manusia</b>Pernafasan dan perkumuhan</div><div class="topic"><b>Haiwan</b>Kemandirian spesies</div><div class="topic"><b>Tumbuhan</b>Fotosintesis</div><div class="topic"><b>Elektrik</b>Litar bersiri dan selari</div><div class="topic"><b>Haba</b>Pengembangan dan pengecutan</div><div class="topic"><b>Karat</b>Keadaan pengaratan</div><div class="topic"><b>Jirim</b>Keadaan dan perubahan jirim</div><div class="topic"><b>Bumi</b>Graviti dan sumber bumi</div><div class="topic"><b>Mesin</b>Mesin ringkas</div></div></section>
+<section id="A" class="panel"><h2>🅰️ Bahagian A — Objektif <span class="pill">21 markah</span></h2><p class="small">21 soalan, 1 markah setiap satu.</p><div id="qsA"></div></section>
+<section id="B" class="panel"><h2>🅱️ Bahagian B — Struktur dan interaktif <span class="pill">9 markah</span></h2><p class="small">Padanan interaktif 4 markah dan struktur ringkas 5 markah.</p><div class="question"><b>B1. Padankan konsep dengan penerangan. (4 markah)</b><div id="match"></div><div id="mf" class="feedback"></div></div><div class="question"><b>B2. Nyatakan dua pemboleh ubah yang perlu dimalarkan semasa menguji kecerahan mentol. (2 markah)</b><textarea id="b2" placeholder="Dua pemboleh ubah..."></textarea></div><div class="question"><b>B3. Nyatakan satu cara mencegah pagar besi berkarat. (1 markah)</b><input id="b3" type="text" placeholder="Jawapan ringkas"></div><div class="question"><b>B4. Nyatakan fungsi mesin ringkas dan satu contoh. (2 markah)</b><textarea id="b4" placeholder="Fungsi dan contoh..."></textarea></div></section>
+<section id="C" class="panel"><h2>🅲 Bahagian C — Aplikasi, penyataan dan penulisan <span class="pill">20 markah</span></h2><p class="small">5 objektif (5 markah), struktur (9 markah), penulisan (6 markah).</p><div id="qsC"></div><div class="question"><b>C6. Anak pokok diletakkan di tempat gelap selama beberapa hari. Terangkan kesan terhadap penghasilan makanan tumbuhan. (3 markah)</b><textarea id="c6"></textarea></div><div class="question"><b>C7. Bandingkan litar bersiri dan litar selari apabila satu mentol rosak. (3 markah)</b><textarea id="c7"></textarea></div><div class="question"><b>C8. Tulis hipotesis bagi penyiasatan: “Adakah jumlah cahaya mempengaruhi pertumbuhan anak pokok?” (3 markah)</b><textarea id="c8" placeholder="Jika..., maka..."></textarea></div><div class="question"><b>C9. Tulis 3–5 ayat tentang satu mesin ringkas, kegunaan dan bagaimana ia memudahkan kerja. (6 markah)</b><textarea id="c9"></textarea></div></section>
+<section id="nota" class="panel"><h2>📌 Nota penting</h2><div class="grid"><div class="topic"><b>Kemahiran saintifik</b>Dimanipulasikan: diubah. Bergerak balas: diukur. Dimalarkan: dikekalkan.</div><div class="topic"><b>Manusia</b>Pernafasan mengambil oksigen dan menyingkirkan karbon dioksida. Perkumuhan menyingkirkan bahan buangan.</div><div class="topic"><b>Haiwan dan tumbuhan</b>Ciri khas membantu kemandirian. Fotosintesis memerlukan cahaya, air dan karbon dioksida.</div><div class="topic"><b>Elektrik</b>Litar bersiri mempunyai satu laluan arus; litar selari mempunyai beberapa cabang.</div><div class="topic"><b>Haba dan karat</b>Bahan lazimnya mengembang apabila dipanaskan. Besi berkarat dengan kehadiran air dan oksigen.</div><div class="topic"><b>Jirim, Bumi dan mesin</b>Jirim ialah pepejal, cecair atau gas. Graviti menarik objek ke Bumi. Mesin ringkas memudahkan kerja.</div></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn" id="submit">Semak semua jawapan & kira markah</button><button class="btn secondary" id="reset">Mula semula</button></div><p class="small">Penilaian struktur automatik berasaskan kata kunci ialah anggaran latihan kendiri. Guru boleh menyemak jawapan bertulis secara manual.</p></section></main>
+<div class="modal" id="modal"><div class="modalbox"><div style="font-size:42px" id="emoji">🔬</div><h2 id="title">Pencapaian keseluruhan</h2><div class="markah"><span id="final">0</span>/50</div><p id="msg">Teruskan usaha!</p><p class="small" id="parts"></p><button class="btn" id="close">Tutup</button></div></div><footer>Pra-UASA Sains Tahun 5 • Makmal Mini Interaktif</footer>
 <script>
-const missions=[
-["Kemahiran Saintifik","🚀","Roket Air","Uji hubungan isi padu air dan tekanan terhadap pergerakan roket."],
-["Peraturan Bilik Sains","🧪","Cabaran Keselamatan Makmal","Kenal pasti tindakan yang selamat ketika menjalankan penyiasatan."],
-["Proses Hidup Haiwan","🐾","Misi Kemandirian Haiwan","Teroka bagaimana ciri dan tingkah laku membantu haiwan terus hidup."],
-["Proses Hidup Tumbuhan","🌱","Pencaran Biji Benih","Uji bagaimana ciri biji benih mempengaruhi jarak pencaran."],
-["Tenaga","⚡","Makmal Perubahan Tenaga","Teroka sumber tenaga dan perubahan bentuk tenaga."],
-["Cahaya","🔦","Makmal Bayang-bayang","Uji kesan jarak sumber cahaya terhadap bayang-bayang."],
-["Elektrik","💡","Jurutera Litar Elektrik","Bina litar, tambah sel dan mentol serta bandingkan bersiri dan selari."],
-["Haba","🌡️","Makmal Haba dan Suhu","Uji perubahan suhu apabila bahan dipanaskan dan disejukkan."],
-["Jirim","🧊","Makmal 3 Keadaan Jirim","Teroka pergerakan zarah dan perubahan keadaan jirim."],
-["Asid dan Alkali","🧪","Makmal Penunjuk","Uji bahan menggunakan penunjuk dan kenal pasti asid, neutral atau alkali."],
-["Bumi, Bulan dan Matahari","🌙","Orbit dan Fasa Bulan","Gerakkan Bulan mengelilingi Bumi dan perhatikan fasa Bulan."],
-["Teknologi","🏗️","Jurutera Binaan","Reka bentuk binaan dan uji kestabilan serta kekuatannya."]
+const A=[
+["Tujuan pemerhatian saintifik ialah…",["Mengumpul maklumat menggunakan deria atau alat","Mengubah semua pemboleh ubah","Memastikan hipotesis betul","Menghafal keputusan"],0],
+["Pemboleh ubah yang sengaja diubah ialah…",["bergerak balas","dimanipulasikan","dimalarkan","tersembunyi"],1],
+["Organ utama pernafasan manusia ialah…",["jantung","perut","peparu","ginjal"],2],
+["Bahan buangan pernafasan ialah…",["oksigen","karbon dioksida","kanji","air liur"],1],
+["Penyamaran membantu haiwan…",["menukar makanan","mengelakkan musuh","membina sarang sahaja","menghasilkan cahaya"],1],
+["Fotosintesis memerlukan…",["cahaya, air dan karbon dioksida","oksigen dan tanah sahaja","gula sahaja","pasir dan angin"],0],
+["Bahagian tumbuhan yang menyerap air ialah…",["bunga","daun","akar","buah"],2],
+["Mentol menyala apabila litar…",["terbuka","terputus","tertutup","tiada sel"],2],
+["Ciri litar selari ialah…",["satu laluan sahaja","mempunyai beberapa cabang","semua mentol satu baris","arus tidak mengalir"],1],
+["Kebanyakan bahan apabila dipanaskan akan…",["mengecut","mengembang","hilang jisim","menjadi magnet"],1],
+["Besi berkarat apabila terdapat…",["air dan oksigen","cahaya dan pasir","minyak sahaja","garam sahaja"],0],
+["Air membeku berubah daripada…",["pepejal kepada gas","gas kepada cecair","cecair kepada pepejal","pepejal kepada cecair"],2],
+["Gas mempunyai…",["bentuk dan isi padu tetap","bentuk tetap","bentuk dan isi padu tidak tetap","zarah tidak bergerak"],2],
+["Daya yang menarik objek ke Bumi ialah…",["geseran","magnet","graviti","apungan"],2],
+["Contoh sumber semula jadi Bumi ialah…",["plastik","mineral","telefon","kertas bercetak"],1],
+["Baji digunakan untuk…",["memotong atau membelah","mengukur suhu","menghasilkan elektrik","menyimpan air"],0],
+["Takal boleh membantu…",["mengangkat beban","menghasilkan cahaya","mengukur jisim","menghalang gerakan"],0],
+["Alat mengukur suhu air ialah…",["pembaris","termometer","jam randik","neraca"],1],
+["Jika satu mentol litar bersiri rosak, biasanya…",["lain terus menyala","semua terpadam","arus tiada had","bateri membesar"],1],
+["Cara mencegah karat ialah…",["membasahkan besi","mengecat permukaan","menutup dengan kertas","merendam dalam air"],1],
+["Tumbuhan layu dalam tanah kering mungkin kerana…",["tidak perlukan air","kekurangan air","cahaya jadi tanah","akar buat plastik"],1]
+], C=[
+["Faktor yang diubah dalam ujian cahaya terhadap tumbuhan ialah…",["jenis pasu","jumlah cahaya","jenis pembaris","nama tumbuhan"],1],
+["Wap air menjadi titisan air melalui…",["penyejatan","pembekuan","kondensasi","peleburan"],2],
+["Bahan yang menghalang air dan oksigen daripada menyentuh besi ialah…",["cat","air garam","pasir basah","cuka"],0],
+["Apabila suis dibuka, litar biasanya…",["lengkap","terputus","bertambah mentol","sel jadi suis"],1],
+["Mesin ringkas dengan titik tumpu, beban dan daya ialah…",["tuas","takal","baji","skru"],0]
 ];
-const qs=[
-[
-["Pemerhatian","Apakah yang berlaku kepada jarak/masa penerbangan apabila isi padu air diubah?"],
-["Inferens","Mengapakah perubahan isi padu air boleh menyebabkan perubahan pergerakan roket?"],
-["Pemboleh ubah","Dalam eksperimen ini, nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","isi padu air","jarak/masa penerbangan","jenis roket"],
-["Hipotesis","Jika isi padu air ditambah, apakah yang kamu jangka berlaku kepada pergerakan roket?"],
-["Ramalan","Jika bacaan eksperimen menunjukkan pola yang sama, apakah ramalan untuk isi padu yang lebih tinggi?"],
-["Kesimpulan","Apakah kesimpulan yang boleh dibuat berdasarkan hubungan pemboleh ubah yang diuji?"]
-],
-[
-["Pemerhatian","Antara tindakan yang dipaparkan, yang manakah selamat di dalam makmal?"],
-["Inferens","Mengapakah murid perlu mematuhi peraturan keselamatan?"],
-["Pemboleh ubah","Apakah perkara yang perlu dikekalkan semasa membandingkan dua situasi keselamatan?","situasi/perbuatan yang diuji","tahap keselamatan","lokasi makmal"],
-["Hipotesis","Jika peraturan keselamatan dipatuhi, apakah yang dijangka berlaku terhadap risiko kemalangan?"],
-["Ramalan","Apakah yang mungkin berlaku jika peraturan keselamatan diabaikan?"],
-["Kesimpulan","Apakah kesimpulan tentang kepentingan peraturan bilik sains?"]
-],
-[
-["Pemerhatian","Apakah ciri atau tingkah laku yang membantu haiwan dalam situasi yang diberikan?"],
-["Inferens","Mengapakah ciri tersebut membantu haiwan terus hidup?"],
-["Pemboleh ubah","Nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","keadaan persekitaran","tahap kemandirian","jenis haiwan"],
-["Hipotesis","Jika keadaan persekitaran berubah, apakah yang dijangka berlaku terhadap kemandirian haiwan?"],
-["Ramalan","Jika sumber makanan berkurang, apakah yang kamu ramalkan akan berlaku?"],
-["Kesimpulan","Apakah hubungan antara ciri/tingkah laku dengan kemandirian haiwan?"]
-],
-[
-["Pemerhatian","Biji benih yang manakah bergerak paling jauh dalam simulasi?"],
-["Inferens","Mengapakah bentuk atau struktur biji benih mempengaruhi pencaran?"],
-["Pemboleh ubah","Nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","bentuk/struktur biji benih","jarak pencaran","jenis angin"],
-["Hipotesis","Jika biji benih mempunyai struktur yang membantu pergerakan udara, apakah yang dijangka berlaku kepada jarak pencaran?"],
-["Ramalan","Apakah ramalan jarak pencaran apabila kelajuan angin ditambah?"],
-["Kesimpulan","Apakah kesimpulan tentang ciri biji benih dan cara pencarannya?"]
-],
-[
-["Pemerhatian","Apakah perubahan bentuk tenaga yang berlaku dalam sistem yang dipilih?"],
-["Inferens","Mengapakah alat tersebut boleh menghasilkan kesan seperti cahaya, bunyi atau pergerakan?"],
-["Pemboleh ubah","Nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","sumber/kuantiti tenaga","kesan tenaga","alat yang digunakan"],
-["Hipotesis","Jika sumber tenaga berubah, apakah yang dijangka berlaku kepada output alat?"],
-["Ramalan","Apakah yang diramal berlaku jika sumber tenaga ditambah?"],
-["Kesimpulan","Apakah kesimpulan tentang perubahan bentuk tenaga?"]
-],
-[
-["Pemerhatian","Apakah perubahan saiz bayang-bayang apabila jarak objek dengan sumber cahaya diubah?"],
-["Inferens","Mengapakah jarak mempengaruhi saiz bayang-bayang?"],
-["Pemboleh ubah","Nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","jarak objek-sumber cahaya","saiz bayang-bayang","saiz objek"],
-["Hipotesis","Jika objek didekatkan kepada sumber cahaya, apakah yang dijangka berlaku kepada bayang-bayang?"],
-["Ramalan","Apakah yang diramal berlaku apabila objek digerakkan semakin jauh daripada sumber cahaya?"],
-["Kesimpulan","Apakah hubungan antara jarak objek dan saiz bayang-bayang?"]
-],
-[
-["Pemerhatian","Apakah yang berlaku kepada kecerahan mentol apabila bilangan sel ditambah?"],
-["Inferens","Mengapakah kecerahan mentol berubah apabila bilangan sel berubah?"],
-["Pemboleh ubah","Nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","bilangan sel","kecerahan mentol","jenis mentol"],
-["Hipotesis","Jika bilangan sel ditambah, apakah yang dijangka berlaku kepada kecerahan mentol?"],
-["Ramalan","Jika 3 sel menghasilkan kecerahan 60%, apakah ramalan bagi 4 sel berdasarkan pola simulasi?"],
-["Kesimpulan","Apakah kesimpulan tentang bilangan sel dan kecerahan mentol?"]
-],
-[
-["Pemerhatian","Apakah yang berlaku kepada suhu apabila masa pemanasan ditambah?"],
-["Inferens","Mengapakah suhu bahan berubah apabila menerima haba?"],
-["Pemboleh ubah","Nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","masa pemanasan","suhu","jenis bahan"],
-["Hipotesis","Jika masa pemanasan ditambah, apakah yang dijangka berlaku kepada suhu?"],
-["Ramalan","Apakah suhu yang kamu ramalkan selepas pemanasan diteruskan?"],
-["Kesimpulan","Apakah hubungan antara pemanasan dengan perubahan suhu?"]
-],
-[
-["Pemerhatian","Apakah yang berlaku kepada pergerakan zarah apabila suhu dinaikkan?"],
-["Inferens","Mengapakah zarah bergerak lebih aktif apabila menerima haba?"],
-["Pemboleh ubah","Nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","suhu","pergerakan zarah","jenis jirim"],
-["Hipotesis","Jika suhu dinaikkan, apakah yang dijangka berlaku kepada pergerakan zarah?"],
-["Ramalan","Apakah yang berlaku jika suhu diturunkan?"],
-["Kesimpulan","Apakah hubungan antara suhu dan pergerakan zarah?"]
-],
-[
-["Pemerhatian","Apakah perubahan warna penunjuk apabila bahan yang diuji ditambah?"],
-["Inferens","Mengapakah warna penunjuk berbeza bagi bahan yang berlainan?"],
-["Pemboleh ubah","Nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","jenis bahan","warna penunjuk","jenis penunjuk"],
-["Hipotesis","Jika bahan bersifat asid atau alkali diuji dengan penunjuk, apakah yang dijangka berlaku kepada warna?"],
-["Ramalan","Apakah warna/jenis tindak balas yang diramal bagi bahan yang belum diuji?"],
-["Kesimpulan","Apakah kesimpulan tentang penggunaan penunjuk untuk mengenal pasti sifat bahan?"]
-],
-[
-["Pemerhatian","Apakah perubahan fasa Bulan apabila kedudukannya mengelilingi Bumi berubah?"],
-["Inferens","Mengapakah Bulan kelihatan dalam fasa yang berbeza?"],
-["Pemboleh ubah","Nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","kedudukan Bulan","fasa Bulan","kedudukan Matahari"],
-["Hipotesis","Jika kedudukan Bulan berubah mengelilingi Bumi, apakah yang dijangka berlaku kepada fasa Bulan?"],
-["Ramalan","Apakah fasa yang mungkin kelihatan selepas Bulan bergerak ke kedudukan seterusnya?"],
-["Kesimpulan","Apakah kesimpulan tentang kedudukan Bulan dan fasa Bulan?"]
-],
-[
-["Pemerhatian","Bentuk binaan manakah menahan beban paling tinggi dalam simulasi?"],
-["Inferens","Mengapakah bentuk tertentu menghasilkan binaan yang lebih kuat atau stabil?"],
-["Pemboleh ubah","Nyatakan pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.","bentuk reka bentuk","beban maksimum","bahan binaan"],
-["Hipotesis","Jika reka bentuk menggunakan struktur yang lebih stabil, apakah yang dijangka berlaku kepada beban maksimum?"],
-["Ramalan","Apakah ramalan jika satu lagi sokongan ditambah pada binaan?"],
-["Kesimpulan","Apakah kesimpulan tentang reka bentuk, kekuatan dan kestabilan binaan?"]
-]
-];
-
-const state={xp:Number(localStorage.getItem("abedu_xp")||0),done:JSON.parse(localStorage.getItem("abedu_done")||"[]")};
-function save(){localStorage.setItem("abedu_xp",state.xp);localStorage.setItem("abedu_done",JSON.stringify(state.done));renderHome()}
-function renderHome(){
- document.getElementById("totalXP").textContent=state.xp;
- document.getElementById("progress").style.width=Math.min(100,state.xp/1200*100)+"%";
- document.getElementById("missionGrid").innerHTML=missions.map((m,i)=>`<div class="card mission-card" onclick="openMission(${i})"><div class="mission-head"><span class="num">${String(i+1).padStart(2,"0")}</span><span>${state.done.includes(i)?'✅':'🔒'}</span></div><div style="font-size:36px;margin-top:10px">${m[1]}</div><h3>${m[2]}</h3><p class="muted">${m[3]}</p><span class="tag">${m[0]}</span><span class="tag">${state.done.includes(i)?'Selesai':'100 XP'}</span></div>`).join("");
-}
-function openMission(i){
- document.getElementById("home").classList.add("hidden"); const el=document.getElementById("mission");el.classList.remove("hidden");
- el.innerHTML=`<div class="topbar"><button class="back" onclick="closeMission()">← Semua Misi</button></div>
- <div class="card"><div class="mission-head"><div><span class="tag">MISI ${String(i+1).padStart(2,"0")}</span><h2>${missions[i][1]} ${missions[i][2]}</h2><p class="muted">${missions[i][3]}</p></div><div class="xp">+100 XP</div></div>
- <div class="steps" id="steps">${qs[i].map((q,n)=>`<span class="step ${n===0?'active':''}">${n+1}. ${q[0]}</span>`).join("")}</div>
- <div class="section" id="sim"></div>
- <div class="section" id="question"></div>
- </div>`;
- buildSim(i); renderQuestion(i,0);
-}
-function closeMission(){document.getElementById("mission").classList.add("hidden");document.getElementById("home").classList.remove("hidden");renderHome();scrollTo(0,0)}
-function buildSim(i){
- let html="";
- if(i===6) html=`<div class="sim"><h3>💡 Simulator Litar Elektrik</h3><div class="experiment-visual"><div class="battery" id="bat">🔋×1</div><div class="wire">〰️</div><div class="bulb" id="bulb">💡</div></div><div class="controls"><div class="control"><label>Bilangan sel: <b id="cellsVal">1</b></label><input id="cells" type="range" min="1" max="5" value="1" oninput="electric()"></div><div class="control"><label>Suis</label><button id="sw" onclick="toggleSwitch()">OFF</button></div><div class="control"><label>Jenis litar</label><select id="circuit" onchange="electric()"><option>Bersiri</option><option>Selari</option></select></div></div><div class="readout"><div class="read"><small>Kecerahan</small><b id="bright">0%</b></div><div class="read"><small>Status</small><b id="status">Terbuka</b></div></div></div>`;
- else if(i===5) html=`<div class="sim"><h3>🔦 Simulator Bayang-bayang</h3><div class="experiment-visual"><div>🔦</div><div id="obj" style="font-size:48px">🧱</div><div style="font-size:50px">▏</div></div><div class="controls"><div class="control"><label>Jarak objek-sumber: <b id="distVal">3</b></label><input id="dist" type="range" min="1" max="8" value="3" oninput="shadow()"></div></div><div class="readout"><div class="read"><small>Saiz bayang</small><b id="shadowVal">80%</b></div></div></div>`;
- else if(i===7) html=`<div class="sim"><h3>🌡️ Simulator Haba</h3><div class="experiment-visual"><div style="font-size:55px">🔥</div><div style="font-size:55px">🧪</div><div style="font-size:50px">🌡️</div></div><div class="controls"><div class="control"><label>Masa pemanasan: <b id="heatVal">0</b> min</label><input id="heat" type="range" min="0" max="10" value="0" oninput="heatSim()"></div></div><div class="readout"><div class="read"><small>Suhu</small><b id="temp">25°C</b></div></div></div>`;
- else if(i===8) html=`<div class="sim"><h3>🧊 Simulator Zarah Jirim</h3><div class="experiment-visual" id="particles" style="font-size:26px"></div><div class="controls"><div class="control"><label>Suhu: <b id="matterVal">25</b>°C</label><input id="matter" type="range" min="-10" max="100" value="25" oninput="matterSim()"></div></div><div class="readout"><div class="read"><small>Keadaan</small><b id="matterState">Cecair</b></div></div></div>`;
- else if(i===9) html=`<div class="sim"><h3>🧪 Simulator Penunjuk</h3><div class="experiment-visual"><div style="font-size:70px" id="chem">💧</div><div id="litmus" style="font-size:52px">🟣</div></div><div class="controls"><div class="control"><label>Pilih bahan</label><select id="chemSelect" onchange="chemSim()"><option value="asid">Jus lemon</option><option value="asid">Cuka</option><option value="neutral">Air</option><option value="alkali">Sabun</option></select></div></div><div class="readout"><div class="read"><small>Sifat</small><b id="chemState">Asid</b></div></div></div>`;
- else if(i===10) html=`<div class="sim"><h3>🌙 Simulator Fasa Bulan</h3><div class="experiment-visual"><div style="font-size:55px">☀️</div><div style="font-size:45px">🌍</div><div id="moon" style="font-size:52px">🌑</div></div><div class="controls"><div class="control"><label>Kedudukan Bulan: <b id="moonVal">0</b>°</label><input id="moonRange" type="range" min="0" max="330" step="30" value="0" oninput="moonSim()"></div></div><div class="readout"><div class="read"><small>Fasa</small><b id="moonState">Anak bulan</b></div></div></div>`;
- else if(i===11) html=`<div class="sim"><h3>🏗️ Simulator Binaan</h3><div class="experiment-visual"><div id="structure" style="font-size:75px">🔺</div><div style="font-size:65px">🏋️</div></div><div class="controls"><div class="control"><label>Reka bentuk</label><select id="design" onchange="buildSimResult()"><option value="triangle">Segi tiga</option><option value="square">Segi empat</option><option value="cube">Kubus</option><option value="cylinder">Silinder</option></select></div><div class="control"><label>Sokongan tambahan</label><input id="support" type="range" min="0" max="3" value="0" oninput="buildSimResult()"></div></div><div class="readout"><div class="read"><small>Beban maksimum</small><b id="load">70 g</b></div></div></div>`;
- else html=`<div class="sim"><h3>${missions[i][1]} Eksperimen Interaktif</h3><div class="experiment-visual"><div style="font-size:70px">${missions[i][1]}</div><div style="font-size:55px">🔬</div></div><p style="text-align:center;color:#cbe1df">Teroka pemboleh ubah eksperimen dan gunakan data simulasi untuk menjawab soalan misi.</p><div class="controls"><div class="control"><label>Pemboleh ubah 1</label><input type="range" min="1" max="10" value="5"></div><div class="control"><label>Pemboleh ubah 2</label><input type="range" min="1" max="10" value="5"></div></div></div>`;
- document.getElementById("sim").innerHTML=html;
- if(i===6)electric(); if(i===5)shadow();if(i===7)heatSim();if(i===8)matterSim();if(i===9)chemSim();if(i===10)moonSim();if(i===11)buildSimResult();
-}
-let switchOn=false;
-function toggleSwitch(){switchOn=!switchOn;document.getElementById("sw").textContent=switchOn?"ON":"OFF";electric()}
-function electric(){let c=+document.getElementById("cells").value;document.getElementById("cellsVal").textContent=c;document.getElementById("bat").textContent="🔋×"+c;let b=switchOn?Math.min(100,c*20):0;document.getElementById("bright").textContent=b+"%";document.getElementById("status").textContent=switchOn?"Tertutup":"Terbuka";document.getElementById("bulb").classList.toggle("on",b>0)}
-function shadow(){let d=+document.getElementById("dist").value;document.getElementById("distVal").textContent=d;document.getElementById("shadowVal").textContent=Math.max(20,120-d*10)+"%"}
-function heatSim(){let t=+document.getElementById("heat").value;document.getElementById("heatVal").textContent=t;document.getElementById("temp").textContent=(25+t*6)+"°C"}
-function matterSim(){let t=+document.getElementById("matter").value;document.getElementById("matterVal").textContent=t;let s=t<=0?"Pepejal":t<100?"Cecair":"Gas";document.getElementById("matterState").textContent=s;document.getElementById("particles").textContent=s==="Pepejal"?"• • • • • • • •":s==="Cecair"?"•  • •   • • •":"•       •       •"}
-function chemSim(){let v=document.getElementById("chemSelect").value;document.getElementById("chemState").textContent=v==="asid"?"Asid":v==="alkali"?"Alkali":"Neutral";document.getElementById("litmus").textContent=v==="asid"?"🔴":v==="alkali"?"🔵":"🟣"}
-function moonSim(){let n=+document.getElementById("moonRange").value, phases=["Anak bulan","Bulan sabit","Suku pertama","Bulan purnama","Suku akhir","Bulan sabit"];let idx=Math.round(n/60)%6;document.getElementById("moonVal").textContent=n;document.getElementById("moonState").textContent=phases[idx];document.getElementById("moon").textContent=["🌑","🌒","🌓","🌕","🌗","🌘"][idx]}
-function buildSimResult(){let d=document.getElementById("design").value,s=+document.getElementById("support").value,base={triangle:70,square:45,cube:80,cylinder:65}[d];document.getElementById("load").textContent=(base+s*15)+" g";document.getElementById("structure").textContent={triangle:"🔺",square:"⬜",cube:"🧊",cylinder:"🛢️"}[d]}
-function renderQuestion(i,n){
- const q=qs[i][n];document.querySelectorAll(".step").forEach((x,k)=>x.classList.toggle("active",k===n));
- let options=[];
- if(q[0]==="Pemboleh ubah") options=q.slice(2);
- else {
- const generic=[
- "Berlaku perubahan mengikut keadaan yang diuji.",
- "Tiada perubahan langsung.",
- "Berlaku secara rawak tanpa hubungan.",
- "Eksperimen tidak dapat memberikan sebarang maklumat."
- ];
- options=[q[1],...generic].slice(0,4);
- }
- document.getElementById("question").innerHTML=`<div class="card question"><div class="qhead">${n+1}. ${q[0]}</div><p>${q[1]}</p><div class="opts">${options.map((o,k)=>`<button class="opt" onclick="answer(${i},${n},${k})">${String.fromCharCode(65+k)}. ${o}</button>`).join("")}</div><div id="fb"></div></div>`;
-}
-function answer(i,n,k){
- const q=qs[i][n];let correct=0;
- if(q[0]==="Pemboleh ubah") correct=0;
- else correct=0;
- document.querySelectorAll(".opt").forEach((b,idx)=>{b.disabled=true;if(idx===correct)b.classList.add("correct")});
- const fb=document.getElementById("fb");fb.className="feedback";fb.innerHTML=`<b>Bagus!</b> Gunakan pemerhatian daripada simulasi untuk menyokong jawapan kamu.`;
- setTimeout(()=>{if(n<5)renderQuestion(i,n+1);else finish(i)},650);
-}
-function finish(i){
- if(!state.done.includes(i)){state.done.push(i);state.xp+=100;save()}
- document.getElementById("question").innerHTML=`<div class="card success"><h2>🎉 Misi Selesai!</h2><p>Kamu telah melengkapkan keenam-enam langkah penyiasatan.</p><p class="xp">+100 XP • Jumlah XP: ${state.xp}</p><button onclick="closeMission()">Kembali ke Peta Misi</button></div>`;
-}
-renderHome();
-</script>
-</body>
-</html>
+function render(id,arr,p){document.getElementById(id).innerHTML=arr.map((q,i)=>`<div class="question"><div class="qtitle">${p}${i+1}. ${q[0]} <span class="pill">1 markah</span></div><div class="opts">${q[1].map((o,j)=>`<label><input type="radio" name="${p}${i}" value="${j}"><span>${"ABCD"[j]}. ${o}</span></label>`).join("")}</div><div id="fb${p}${i}" class="feedback"></div></div>`).join("")}
+render("qsA",A,"a");render("qsC",C,"c");
+const M=[["Pemboleh ubah dimanipulasikan",["Diubah oleh penyiasat","Diukur atau diperhatikan","Dikekalkan sama"],0],["Pemboleh ubah bergerak balas",["Diubah oleh penyiasat","Diukur atau diperhatikan","Dikekalkan sama"],1],["Pemboleh ubah dimalarkan",["Diubah oleh penyiasat","Diukur atau diperhatikan","Dikekalkan sama"],2],["Fotosintesis",["Membuat makanan dengan bantuan cahaya","Besi berkarat","Air membeku"],0]];
+document.getElementById("match").innerHTML=M.map((m,i)=>`<div style="display:grid;grid-template-columns:1fr 1.2fr;gap:7px;align-items:center;margin:7px 0"><label class="small">${m[0]}</label><select id="m${i}"><option value="">Pilih jawapan</option>${m[1].map((x,j)=>`<option value="${j}">${x}</option>`).join("")}</select></div>`).join("");
+const val=id=>(document.getElementById(id).value||"").toLowerCase(),has=(s,arr)=>arr.some(x=>s.includes(x)),cnt=(id,groups,max)=>Math.min(max,groups.filter(g=>has(val(id),g)).length);
+let result={A:0,B:0,C:0,total:0};
+function grade(){let a=0,co=0;A.forEach((q,i)=>{let v=document.querySelector(`input[name="a${i}"]:checked`),ok=v&&+v.value===q[2];if(ok)a++;let f=document.getElementById(`fba${i}`);f.textContent=v?(ok?"Betul — 1 markah.":"Belum tepat — semak nota."):"Belum dijawab.";f.className="feedback "+(ok?"good":"bad")});C.forEach((q,i)=>{let v=document.querySelector(`input[name="c${i}"]:checked`),ok=v&&+v.value===q[2];if(ok)co++;let f=document.getElementById(`fbc${i}`);f.textContent=v?(ok?"Betul — 1 markah.":"Belum tepat — semak nota."):"Belum dijawab.";f.className="feedback "+(ok?"good":"bad")});
+let m=0;M.forEach((q,i)=>{if(+document.getElementById("m"+i).value===q[2])m++});document.getElementById("mf").textContent=`Padanan betul: ${m}/4 markah.`;
+let b2=cnt("b2",[["bateri","sel"],["wayar","mentol","panjang","jenis"]],2),b3=has(val("b3"),["cat","minyak","gris","galvani","salut"])?1:0,b4=cnt("b4",[["angkat","memudahkan","kerja","daya"],["tuas","takal","baji","skru","gunting","pembuka","satah"]],2);
+let B=Math.min(9,m+b2+b3+b4),c6=cnt("c6",[["kurang","terhad","tidak dapat","berkurang"],["fotosintesis","makanan"],["cahaya"]],3),c7=cnt("c7",[["bersiri","semua","terpadam","padam"],["selari","cabang","laluan lain","masih menyala","terus menyala"]],3),c8=cnt("c8",[["jika"],["maka"],["cahaya","pertumbuhan","banyak","kurang","tinggi","rendah"]],3),c9=cnt("c9",[["tuas","takal","baji","skru","satah condong","roda","gunting","pembuka"],["angkat","potong","belah","gerak","pindah","mudah","memudahkan"],["kerja","daya","beban","contoh"],["kerana","supaya","membantu"],["ayat","ialah","digunakan"]],6);
+result={A:a,B,C:Math.min(20,co+c6+c7+c8+c9),total:Math.min(50,a+B+Math.min(20,co+c6+c7+c8+c9))};document.getElementById("score").textContent=result.total;document.getElementById("progress").style.width=result.total*2+"%";document.getElementById("breakdown").textContent=`A ${result.A}/21 • B ${result.B}/9 • C ${result.C}/20`;return result}
+function popup(){let r=grade(),e,t,m;if(r.total>=40){e="🏆";t="Tahniah, anda cemerlang!";m="Penguasaan kamu sangat baik. Teruskan usaha dan kekalkan sikap ingin tahu!";}else if(r.total>=25){e="⭐";t="Syabas! Teruskan usaha";m="Semak semula nota dan cuba lagi untuk meningkatkan pencapaian."}else{e="🌱";t="Jangan putus asa!";m="Setiap latihan membantu kamu belajar. Teruskan usaha—kamu boleh meningkat!"}document.getElementById("emoji").textContent=e;document.getElementById("title").textContent=t;document.getElementById("msg").textContent=m;document.getElementById("final").textContent=r.total;document.getElementById("parts").textContent=`Bahagian A ${r.A}/21 • B ${r.B}/9 • C ${r.C}/20`;document.getElementById("modal").classList.add("show")}
+document.getElementById("view").onclick=popup;document.getElementById("submit").onclick=popup;document.getElementById("close").onclick=()=>document.getElementById("modal").classList.remove("show");document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show")};document.getElementById("reset").onclick=()=>{if(confirm("Padam semua jawapan dan mula semula?")){document.querySelectorAll('input[type=radio]').forEach(x=>x.checked=false);document.querySelectorAll('textarea,input[type=text],select').forEach(x=>x.value="");document.querySelectorAll('.feedback').forEach(x=>x.textContent="");document.getElementById("score").textContent=0;document.getElementById("progress").style.width=0;document.getElementById("breakdown").textContent="Belum disemak";document.getElementById("modal").classList.remove("show")}};
+</script></body></html>
